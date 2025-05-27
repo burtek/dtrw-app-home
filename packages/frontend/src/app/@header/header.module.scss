@@ -1,0 +1,29 @@
+.header {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+
+    .logo {
+        font-size: 0.9em;
+        text-transform: uppercase;
+        &::first-letter {
+            font-size: 1.3em;
+        }
+    }
+
+    .menu {
+        $gap: .5em;
+
+        display: flex;
+        gap: $gap;
+
+        >a {
+            flex: 1;
+            text-wrap: nowrap;
+
+            &:nth-child(n+2):before {
+                content: '|';
+                margin-right: $gap;
+            }
+        }
+    }
+}

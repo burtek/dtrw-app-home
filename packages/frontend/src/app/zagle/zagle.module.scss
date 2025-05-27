@@ -1,0 +1,101 @@
+@use 'sass:math';
+
+@mixin narrowScreen {
+    @media screen and (max-width: 1070px) {
+        @content;
+    }
+}
+
+.section {
+    $border: 1px solid var(--border);
+
+    &+& {
+        margin-top: 1rem;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .description {
+        border: $border;
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    sup {
+        font-size: 8pt;
+    }
+
+    .links {
+        $paddingV: .5em;
+        $paddingH: 2em;
+
+        width: 100%;
+        margin-top: 1rem;
+
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        grid-auto-rows: max-content;
+
+        .linkItem {
+            position: relative;
+            display: grid;
+            grid-template-areas: "head desc" "additional desc";
+            grid-template-columns: subgrid;
+            grid-column: 1 / -1;
+            border: 1px solid var(--border);
+            &:not(:last-child) {
+                border-bottom: none;
+            }
+            padding: $paddingV $paddingH;
+
+            @include narrowScreen {
+                grid-template-areas: "head" "desc" "additional";
+                grid-template-columns: 1fr;
+                grid-template-rows: max-content max-content max-content;
+            }
+
+            .linkHead {
+                grid-area: head;
+
+                .star {
+                    position: absolute;
+                    left: math.div($paddingH, 2);
+                    transform: translate(-50%, -15%);
+                }
+            }
+            .linkAdditional {
+                grid-area: additional;
+                ul.more {
+                    margin-top: .5em;
+                    margin-left: 2em;
+                }
+                ul.mobile {
+                    margin: .8em 0 0 0;
+                    padding: 0;
+                    list-style-type: none;
+    
+                    li {
+                        display: inline;
+                        font-size: 8pt;
+                        &:not(:last-child)::after {
+                            content: ' | ';
+                        }
+                    }
+
+                    @include narrowScreen {
+                        margin-top: .5em;
+                    }
+                }
+            }
+            .linkDesc {
+                grid-area: desc;
+
+                @include narrowScreen {
+                    margin: .5em 0 0 5vw;
+                }
+            }
+        }
+    }
+}

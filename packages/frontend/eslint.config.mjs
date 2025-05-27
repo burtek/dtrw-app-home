@@ -6,8 +6,7 @@ export default config(
     ...prepareConfig({
         jest: { mode: 'vitest' },
         json: { additionalFiles: { jsonc: ['tsconfig.*.json'] } },
-        react: true,
-        testingLibrary: true
+        react: { nextjs: true }
     }),
     {
         files: ['**/*.{js,jsx,ts,tsx,mts}'],
@@ -17,5 +16,6 @@ export default config(
         },
         settings: { 'import/resolver': { typescript: true } }
     },
-    { ignores: ['dist', 'node_modules'] }
+    { rules: { 'react/display-name': 'off' } },
+    { ignores: ['.velite', 'node_modules'] }
 );

@@ -1,0 +1,88 @@
+---
+title: Jak opisywać bugi?
+ownExcerpt: Jak opisywać bugi czyli siedem rzeczy, które ułatwiają rozmowy z programistami.
+short: bugi
+tags: [IT, programowanie]
+---
+
+_<small>[Oryginalne źródło: [http://www.zombiesamurai.pl/2015/01/jak-opisywac-bugi/](https://web.archive.org/web/20160208153649/http://www.zombiesamurai.pl/2015/01/jak-opisywac-bugi/)]</small>_
+
+Zgłaszanie błędów to dla nas codzienność. Możemy pracować w firmie internetowej i informować programistów o bugach, możemy szukać pomocy z technicznymi aspektami naszych blogów na forach czy facebookowych grupach… Żyjemy w czasach, w których każdy zna średnio półtora programisty i trzy osoby, które się za nich uważają.
+
+Pracując przez osiem lat w portalu internetowym nauczyłem się jak ważna jest efektywna komunikacja pomiędzy ludźmi „technicznymi” (czyli również bazodanowcami, developerami i tak dalej) a całą resztą. O ile jednak ci pierwsi mniej-więcej wiedzą jak interpretować język laika, to ci drudzy zwykle nie mają pojęcia jak mogą pomóc drugiej stronie zrozumieć problem.
+
+Dlatego dziś na blogu kilka prostych porad w tej kwestii. Powinny się przydać jeśli kiedyś będziecie potrzebowali pomocy, zarówno prywatnie jak i np. w pracy – bo zaskakująco częstym problemem firm jest komunikacja na linii biznes-IT.
+
+## Opisuj co się dzieje, a nie swoją interpretację tego
+
+Zacznę od czegoś, co wydaje mi się pozornie nieznaczącym, ale bardzo powszechnym i istotnym problemem. Ludzie z jakiegoś powodu starają się dostarczyć od razu swoją interpretację problemu, a nie opis objawów.
+
+<SideQuote>Ludzie z jakiegoś powodu starają się dostarczyć od razu swoją interpretację problemu, a nie opis objawów.</SideQuote>
+
+Bazodanowiec z którym kiedyś pracowałem powiedział, że to tak jakby iść do lekarza i zamiast mówić „panie doktorze, mam kaszel i temperaturę” powiedzieć „panie doktorze, mam zapalenie płuc”. Niby to może być prawda, ale niekoniecznie.
+
+Pracowałem kiedyś nad serwisem automatycznie proponującym użytkownikom treści, które mogą ich zainteresować. W pewnym momencie dostałem od znajomej zgłoszenie: mechanizm nie działa. Klika powiadomienia i nic się nie dzieje. Poszukaliśmy, posprawdzaliśmy – i nic, u nas wszystko okej. Poszedłem więc do niej, żeby zobaczyć błąd na własne oczy. Okazało się, że kliknęła powiadomienie prowadzące do strony, która akurat padła – dlatego wyświetliła jej się biała plama. Tyle, że problem leżał po stronie tej strony, nie naszego produktu. Znajoma naprowadziła nas na zły trop bo przyszła z gotową diagnozą zamiast opisać co się dzieje i w jakim momencie.
+
+To co piszę wydaje się na pierwszy rzut oka proste, ale w praktyce wymaga pewnego samozaparcia, bo popełniamy ten błąd odruchowo.
+
+## Zdobądź jak największą wiedzę zanim zgłosisz problem
+
+68% błędów jest rozwiązywanych przez zresetowanie przeglądarki albo komputera. Wymyśliłem tę liczbę, ale zdecydowanie powinniście te dwie rzeczy zrobić przed dokonaniem zgłoszenia. Ale to nie wszystko.
+
+Warto sprawdzić, czy na innym urządzeniu błąd się powtarza – być może to kwestia sprzętu, a nie np. błędu w oprogramowaniu czy serwisie. Jeżeli pracujecie w firmie: poproście o sprawdzenie kogoś spoza niej, bug może wynikać z problemów w sieci wewnętrznej. Testując stronę internetową sprawdźcie czy błąd występuje pod wszystkimi przeglądarkami, a jeżeli nie – to pod jakimi.
+
+Lepiej to zrobić wcześniej i w razie pojawienia się takiej potrzeby mieć gotową odpowiedź, zamiast mówić „zaraz sprawdzę” i latać między komputerem a telefonem.
+
+## Podaj jak najwięcej informacji
+
+Ogólnie: im więcej informacji i przykładów tym lepiej. Zaskakująco wiele rzeczy jest istotne, choć wydają się zupełnie bez znaczenia.
+
+Podam Wam przykład. Spotkałem się kiedyś z bugiem, który występował tylko… przy portalowych newsach z jednej z imprez sportowych. Dlaczego? Bo tytuł każdego z nich zaczynał się od skróconej nazwy tej imprezy, w której występował trzyliterowy zlepek znaków powodujący błąd. Niektóre bugi są abstrakcyjne, więc każdy szczegół może być istotny.
+
+W jakim momencie nastąpił problem? Czy w międzyczasie coś się zmieniło, nawet bardzo mały szczegół? Jak produkt zachowuje się na różnym sprzęcie czy pod różnymi przeglądarkami? Wszystko to może mieć znaczenie.
+
+## Nie próbuj używać języka, którego nie rozumiesz
+
+Bardzo dziwna i zarazem niespodziewanie powszechna rzecz: zdarza się, że ludzie próbują za pomocą eksperckiego języka udawać, że mają jakąś wiedzę w temacie, o którym nie mają bladego pojęcia. Problem w tym, że często brzmi to śmiesznie.
+
+<SideQuote>Im więcej bzdur powiecie próbując udawać eksperta, tym więcej pytań będzie potrzebne, żeby zrozumieć o co Wam chodzi.</SideQuote>
+
+W mojej poprzedniej pracy standardem były wiadomości od użytkowników pisane w takim tonie. Wiecie, ktoś nie był w stanie wysłać dziadkom zdjęć z wakacji, bo przekroczył maksymalny rozmiar załącznika – pisał więc coś w rodzaju „wasz serwer nie działa, po zarejestrowaniu nie instaluje wiadomości na moim systemie, powinniście naprawić bazę danych!”. Co oczywiście absolutnie nic nie znaczy.
+
+Ale nie chodzi tylko o użytkowników udających ekspertów, ale też zwyczajnych, rozsądnych ludzi. Mamy taki mechanizm w mózgu, że jeżeli ktoś do nas mówi trudnym językiem, to próbujemy się do niego dostosować i udawać, że wiemy o co chodzi. Tutaj to tylko przeszkadza. Jeśli nie macie technicznej wiedzy: mówcie najprościej jak potraficie. Możecie podkreślić, że to nie sfera Waszej działalności, więc opis może być nieprecyzyjny. Jeżeli czegoś nie rozumiecie: poproście o wytłumaczenie i tak dalej i tak dalej.
+
+Im więcej bzdur powiecie próbując udawać eksperta, tym więcej pytań będzie potrzebne, żeby zrozumieć o co Wam chodzi.
+
+## Pokaż krok po kroku co się dzieje i opisz jakiego działania oczekujesz
+
+Najlepsza sytuacja jest oczywiście w momencie, w którym macie programistę pod ręką, możecie go posadzić przed kompem i pokazać co jest nie tak. Ale nie zawsze się da.
+
+Waszym celem jest umożliwienie drugiej stronie odtworzenia błędu, albo – jeśli ten jest na tyle specyficzny, że to nie wchodzi w grę – przedstawienie go na tyle dokładnie, żeby dało się go zrozumieć na ślepo. Pamiętajcie, że im bardziej logiczny jest opis problemu, tym łatwiej go ogarnąć.
+
+Spróbujcie zacząć od podania jak największej ilości danych (jak często pojawia się problem, na jakim sprzęcie, pod jaką przeglądarką itd.), a potem opisania w punktach drogi jaką przechodzicie i w którym miejscu różni się ona od tego czego oczekujecie.
+
+## Nie myśl „na chłopski rozum”
+
+Jeśli nie znasz technicznych aspektów produktu nad którym pracujesz albo z którym masz problem, to nie próbuj ich zrozumieć „na logikę”. To trochę wiąże się z punktem pierwszym, ale ma znacznie szerszy kontekst.
+
+Wielokrotnie spotykałem się z myśleniem w stylu „jeszcze rano było ok a teraz nie, ja nic nie robiłem czyli na chłopski rozum musieliście coś zepsuć”. To tak nie działa. Nie działa to też tak, że każdy programista, bazodanowiec i developer to magik, który powinien w okamgnieniu wszystko naprawić a jeśli nie, to znaczy, że się nie zna. Często najtrudniejszym elementem rozwiązania problemu jest jego zrozumienie.
+
+Im bardziej skomplikowany produkt tym więcej ma pod maską mechanizmów, których istnienia w życiu byście się nie spodziewali.
+
+## Zrozum narzędzie do zgłaszania błędów, z którego korzystasz
+
+To bardzo ważna rzecz, ale dotycząca tylko niektórych przypadków. Firmy często korzystają z różnych mechanizmów do zgłaszania błędów. Z reguły sprowadzają się one do jakiegoś systemu zarządzania ticketami (czyli zgłoszeniami) – przypisywania ich konkretnym osobom, ustalania ich ważności, statusu i tak dalej. Jeżeli coś takiego działa w miejscu, w którym pracujecie – ten punkt jest dla Was.
+
+Im większy projekt tym bardziej istotne jest bowiem utrzymanie porządku w takim systemie. Błędy są zgłaszane, następnie ustalana jest ich ważność, potem są naprawiane i wracają do zgłaszającego. Jeśli ten potwierdzi, że wszystko działa: ticket jest zamykany.
+
+Często zdarza się, że masę czasu pochłania sprzątanie, bo pracownicy nie potrafią z systemu korzystać, dodają zduplikowane błędy albo nie weryfikują swoich zgłoszeń zapominając o ich istnieniu w momencie naprawienia. Jeśli pracujecie z tego typu mechanizmem: poproście kolegów o szybkie wytłumaczenie jak działa. Ułatwi to pracę zarówno Wam jak i im.
+
+## Przede wszystkim…
+
+…pamiętajcie, że w większości przypadków obu stronom zależy na jak najszybszym rozwiązaniu problemu, a efektywna komunikacja po prostu to upraszcza. To nie jest tak, że ktoś Was nie rozumie bo jest złośliwy.
+
+Z reguły jako osoby z zewnątrz widzimy tylko wierzchołek góry lodowej. Końcowy efekt masy linijek kodu i setek zapytań. To może wpływać na optykę sugerując, że „przecież to tylko mały błąd” i napisanie „nie działa” to wystarczająco dokładna informacja. Tymczasem z drugiej strony siedzi ktoś, kto musi się w tym babrać i to często na ślepo, na podstawie mało precyzyjnego opisu problemu.
+
+Będzie lepiej dla nas wszystkich, jeśli będziemy sobie taką pracę nawzajem ułatwiać :)
+
+_<small>[Oryginalne źródło: [http://www.zombiesamurai.pl/2015/01/jak-opisywac-bugi/](https://web.archive.org/web/20160208153649/http://www.zombiesamurai.pl/2015/01/jak-opisywac-bugi/)]</small>_

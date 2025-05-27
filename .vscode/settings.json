@@ -2,5 +2,13 @@
     "eslint.workingDirectories": [
         "./packages/frontend",
         "./packages/backend",
-    ]
+    ],
+    "[mdx][markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
+    },
 }

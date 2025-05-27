@@ -1,0 +1,93 @@
+%justify {
+    text-align: justify;
+    text-wrap: wrap;
+    text-justify: inter-word;
+}
+
+article.post {
+    article {
+        margin-bottom: .5em;
+    }
+    .title {
+        .short {
+            display: inline-block;
+            margin-left: 1em;
+            font-size: small;
+            background-color: #888;
+            padding: 2px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &::before {
+                content: '/b/'
+            }
+        }
+    }
+    .tags, .published {
+        margin: .5em 0;
+    }
+    .published a {
+        text-decoration: underline dotted #888;
+    }
+    article.toc, article.main {
+        margin: 1.5em 0;
+        a {
+            text-decoration: underline;
+        }
+        h2, h3, h4 {
+            margin-bottom: .5em;
+        }
+        ul, ol {
+            margin-left: 2em;
+            $m: .1em;
+            li {
+                margin-bottom: $m;
+                ul, ol {
+                    margin-top: $m;
+                }
+            }
+        }
+    }
+    article.main {
+        p, li {
+            @extend %justify;
+        }
+        p, blockquote, ul, ol {
+            margin-bottom: 1em;
+        }
+        blockquote {
+            margin-left: 3em;
+
+            &.idea {
+                @extend %justify;
+                border: 1px solid #888;
+                padding: .5em 1em .5em 2em;
+                position: relative;
+
+                @media screen and (max-width: 800px) {
+                    margin-left: 0;
+                }
+
+                &::before {
+                    content: '💡';
+                    position: absolute;
+                    left: 1em;
+                    transform: translateX(-50%);
+                }
+            }
+
+            &.sideQuote {
+                float: right;
+                width: 40%;
+                margin: 1.8em -4em 1.8em 2em;
+
+                font-size: 1.7em;
+                font-style: italic;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+        }
+        table td {
+            padding: .1em .2em;
+        }
+    }
+}

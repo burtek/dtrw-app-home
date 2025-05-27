@@ -1,0 +1,13 @@
+.tags {
+}
+
+.tag {
+    &::before {
+        content: '#';
+        margin-right: .2em;
+    }
+    span {
+        text-decoration: underline;
+    }
+    margin: 0 0 0 .6em;
+}
