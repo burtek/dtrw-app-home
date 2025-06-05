@@ -1,6 +1,7 @@
 import type { Post } from '#content';
 import { useMDX } from '#velite';
 
+import { BlogPostLangLinks } from '../components/langs';
 import { Tags } from '../components/tag';
 
 import styles from './blogpost.module.scss';
@@ -37,6 +38,7 @@ export function BlogPost({ post }: { post: Post }) {
                 tags={post.tags}
                 className={styles.tags}
             />
+            <BlogPostLangLinks post={post} />
             {post.tocEnabled && post.toc.length
                 ? (
                     <article className={styles.toc}>

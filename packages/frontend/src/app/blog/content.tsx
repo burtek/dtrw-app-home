@@ -8,6 +8,22 @@ import styles from './blog.module.scss';
 import { Tags } from './components/tag';
 
 
+function BlogPostItem({ post }: { post: Post }) {
+    // const langs = post.langs && Object.keys(post.langs);
+
+    return (
+        <div className={styles.post}>
+            <Link href={post.permalink}>
+                <h2 className={styles.title}>{post.title}</h2>
+            </Link>
+            {/* {langs ? <div>{langs.map(lang => <span>+{lang}</span>)}</div> : null} */}
+            <p className={styles.date}>{formatTime(post.created)}</p>
+            <p className={styles.excerpt}>{post.ownExcerpt ?? `${post.excerpt}...`}</p>
+            <Tags tags={post.tags} />
+        </div>
+    );
+}
+
 export function Blog({ posts, tag }: { posts: Post[]; tag?: string }) {
     return (
         <>
@@ -16,17 +32,10 @@ export function Blog({ posts, tag }: { posts: Post[]; tag?: string }) {
                 ? <Link href="/blog">(pokaż wszystkie wpisy)</Link>
                 : null}
             {posts.map(post => (
-                <div
+                <BlogPostItem
                     key={post.slug}
-                    className={styles.post}
-                >
-                    <Link href={post.permalink}>
-                        <h2 className={styles.title}>{post.title}</h2>
-                    </Link>
-                    <p className={styles.date}>{formatTime(post.created)}</p>
-                    <p className={styles.excerpt}>{post.ownExcerpt ?? `${post.excerpt}...`}</p>
-                    <Tags tags={post.tags} />
-                </div>
+                    post={post}
+                />
             ))}
         </>
     );

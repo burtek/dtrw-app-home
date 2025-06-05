@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
-import { posts } from '#content';
+import { getPosts } from '#content';
 
 import { Blog } from './content';
 
@@ -9,7 +9,7 @@ import { Blog } from './content';
 export default function BlogPage() {
     return (
         <Suspense>
-            <Blog posts={posts} />
+            <Blog posts={getPosts()} />
         </Suspense>
     );
 }

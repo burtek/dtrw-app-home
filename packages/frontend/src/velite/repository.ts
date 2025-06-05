@@ -5,11 +5,15 @@ export const posts = allPosts
     .filter(post => !post.draft)
     .sort((post1, post2) => -post1.created.localeCompare(post2.created));
 
+export const getPosts = () => posts.filter(post => !post.hide);
+
 export const getPostById = (id: string) => posts.find(post => post.id === id);
 
 export const getPostByShort = (short: string) => posts.find(post => post.short === short);
 
-export const getPostsByTag = (tag: string) => posts.filter(post => post.tags.includes(tag));
+export const getPostsByTag = (tag: string) => getPosts().filter(post => post.tags.includes(tag));
+
+// PAGES
 
 export const getPageByName = (name: string) => {
     const found = pages.find(page => page.name === name);

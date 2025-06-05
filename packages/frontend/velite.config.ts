@@ -45,6 +45,11 @@ export default defineConfig({
                     tocEnabled: s.boolean().optional(),
                     draft: s.boolean().optional(),
                     ownExcerpt: s.string().optional(),
+                    langs: s.object({
+                        pl: s.string().optional(),
+                        en: s.string().optional()
+                    }).optional(),
+                    hide: s.boolean().default(false),
 
                     created: timestamp('created'),
                     updated: timestamp('modified'),
