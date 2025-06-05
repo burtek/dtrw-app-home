@@ -168,5 +168,5 @@ export default function SubPage() {
 }
 
 export function generateMetadata(): Metadata {
-    return { title: 'Linki żeglarskie - Dtrw.ovh' };
+    return { title: 'Linki żeglarskie' };
 }

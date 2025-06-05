@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import styles from './page.module.scss';
 
 
@@ -8,3 +10,5 @@ export default function Home() {
         </div>
     );
 }
+
+export const metadata: Metadata = { title: { absolute: 'Dtrw.ovh' } };

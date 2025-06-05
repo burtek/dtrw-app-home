@@ -38,7 +38,7 @@ export async function generateMetadata(
     const post = getPostById(id);
 
     return {
-        title: `${post?.title} - Dtrw.ovh`,
+        title: post?.title,
         description: post?.excerpt,
         category: post?.tags[0]
     };

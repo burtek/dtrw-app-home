@@ -23,7 +23,7 @@ export async function generateMetadata(
     const { subpage } = await params;
     const page = getPageByName(subpage);
 
-    return { title: `${page.title} - Dtrw.ovh` };
+    return { title: page.title };
 }
 
 export function generateStaticParams() {
