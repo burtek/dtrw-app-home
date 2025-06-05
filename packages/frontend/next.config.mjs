@@ -6,14 +6,24 @@ import { resolve } from 'node:path';
 import { generateRssFeed } from './build-utils/generate-rss.js';
 
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    sassOptions: { silenceDeprecations: ['legacy-js-api'] },
-    pageExtensions: ['js', 'jsx', 'ts', 'tsx']
-};
-
 const isDev = process.argv.includes('dev');
 const isBuild = process.argv.includes('build');
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    output: 'export',
+    sassOptions: { silenceDeprecations: ['legacy-js-api'] },
+    pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+    rewrites() {
+        return Promise.resolve([
+            {
+                source: '/api/:path*',
+                destination: 'http://localhost:4000/:path*'
+            }
+        ]);
+    }
+};
+
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
     process.env.VELITE_STARTED = '1';
     const { build } = await import('velite');

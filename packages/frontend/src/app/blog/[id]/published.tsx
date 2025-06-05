@@ -27,7 +27,7 @@ export function BlogPublishTime({ post }: { post: Post }) {
             {post.created !== post.updated && (
                 <>
                     {', '}
-                    <a href={`https://github.com/burtek/homepage/commits/master/src/content/posts/${post.id}`}>
+                    <a href={`https://github.com/burtek/dtrw-app-home/commits/master/packages/frontend/src/content/posts/${post.id}`}>
                         zaktualizowano
                     </a>
                     {': '}

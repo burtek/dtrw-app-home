@@ -1,11 +1,11 @@
 {
-  "name": "dtrw-homepage",
-  "version": "0.1.0",
+  "name": "frontend",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "clean": "rimraf .next .velite",
-    "dev": "next dev",
+    "start:dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -20,7 +20,7 @@
     "react-world-flags": "^1.6.0"
   },
   "devDependencies": {
-    "@dtrw/eslint-config": "^5.5.0",
+    "@dtrw/eslint-config": "^5.9.0",
     "@types/node": "^22.10.7",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",

@@ -1,38 +1,21 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
-import { getPostsByTag, posts } from '#content';
+import { posts } from '#content';
 
 import { Blog } from './content';
 
 
-interface Props {
-    // params: Promise<{}>;
-    searchParams: Promise<Partial<{ tag: string }>>;
-}
-
-export default async function BlogPage({ searchParams }: Props) {
-    const { tag } = await searchParams;
-    const filteredPosts = tag
-        ? getPostsByTag(tag)
-        : posts;
-
+export default function BlogPage() {
     return (
         <Suspense>
-            <Blog
-                posts={filteredPosts}
-                tag={tag}
-            />
+            <Blog posts={posts} />
         </Suspense>
     );
 }
 
-export async function generateMetadata(
-    { searchParams }: Props
-    // parent: ResolvingMetadata
-): Promise<Metadata> {
-    const { tag } = await searchParams;
-
-    const title = 'Blog - Dtrw.ovh';
-    return { title: tag ? `#${tag} - ${title}` : title };
-}
+export const metadata: Metadata = {
+    title: { absolute: 'Blog - Dtrw.ovh' },
+    description: 'Blog posts about various topics related to technology, programming, genealogy, and more.',
+    category: 'Blog'
+};

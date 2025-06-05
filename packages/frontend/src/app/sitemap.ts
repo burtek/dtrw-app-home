@@ -3,6 +3,8 @@ import type { MetadataRoute } from 'next';
 import { pages, posts } from '#content';
 
 
+export const dynamic = 'force-static';
+
 // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
@@ -38,8 +40,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
         ...posts.map<MetadataRoute.Sitemap[number]>(post => ({
             url: `https://dtrw.ovh/blog/${post.id}`,
-            lastModified: new Date(),
             changeFrequency: 'weekly',
+            lastModified: new Date(post.updated),
             priority: 1
         }))
     ];

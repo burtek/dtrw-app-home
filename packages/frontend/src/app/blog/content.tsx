@@ -13,7 +13,7 @@ export function Blog({ posts, tag }: { posts: Post[]; tag?: string }) {
         <>
             <h1 className={styles.header}>Najnowsze wpisy{tag ? ` z kategorii ${tag}` : ''}:</h1>
             {tag
-                ? <Link href={{ query: { tag: null } }}>(pokaż wszystkie wpisy)</Link>
+                ? <Link href="/blog">(pokaż wszystkie wpisy)</Link>
                 : null}
             {posts.map(post => (
                 <div

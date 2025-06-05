@@ -30,7 +30,7 @@ export default function Footer() {
                 {', source available on '}
                 <a
                     rel="noopener noreferrer nofollow"
-                    href="https://github.com/burtek/homepage"
+                    href="https://github.com/burtek/app-dtrw-home"
                 >
                     GitHub
                 </a>

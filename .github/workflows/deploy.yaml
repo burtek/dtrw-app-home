@@ -62,7 +62,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           passphrase: ${{ secrets.VPS_SSH_PASSPHRASE }}
-          source: "packages/frontend/dist/*"
+          source: "packages/frontend/out/*"
           target: "/apps/${{ env.APP_NAME }}/frontend"
           strip_components: 3
 

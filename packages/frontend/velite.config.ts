@@ -20,7 +20,7 @@ const timestamp = (type: 'created' | 'modified') =>
         .custom<string | undefined>(i => i === undefined || typeof i === 'string')
         .transform<string>(async (value, { meta, addIssue }) => {
             const path = typeof meta.path === 'string' ? meta.path : '';
-            const command = `git log --format=%cI ${type === 'created' ? '--reverse' : ''} ${path} | head -n1`;
+            const command = `git log -m --full-history --follow --format=%cI ${path} ${type === 'created' ? '| tac |' : '|'} head -n1`;
             if (value) {
                 addIssue({ fatal: false, code: 'custom', message: '`s.timestamp()` schema will resolve the value from `git log` command' });
             }

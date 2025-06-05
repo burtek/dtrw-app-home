@@ -14,7 +14,7 @@ export const Tags: FC<{ className?: string; tags: string[] }> = ({ className, ta
             Tagi:
             {tags.map(tag => (
                 <Link
-                    href={{ pathname: '/blog', query: { tag } }}
+                    href={`/blog/tag/${tag}`}
                     key={tag}
                     className={styles.tag}
                 >
