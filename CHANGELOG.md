@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/burtek/dtrw-app-home/compare/v1.1.0...v1.2.0) (2025-07-23)
+
+
+### Features
+
+* bump node version to 24, use node:24-slim ([b38ce3e](https://github.com/burtek/dtrw-app-home/commit/b38ce3edc068a438a13d5e65a427b118bfabe20c))
+
 ## 1.1.0 (2025-07-23)
 
 
