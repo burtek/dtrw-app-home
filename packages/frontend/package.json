@@ -22,8 +22,8 @@
     "shiki": "^3.6.0"
   },
   "devDependencies": {
-    "@dtrw/eslint-config": "^5.9.0",
-    "@types/node": "^22.10.7",
+    "@dtrw/eslint-config": "~5.9.2",
+    "@types/node": "^24.1.0",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@types/react-world-flags": "^1.6.0",
