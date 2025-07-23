@@ -1,6 +1,7 @@
 import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
 
+import rehypeShiki from '@shikijs/rehype';
 import rehypeSlug from 'rehype-slug';
 import { defineConfig, s } from 'velite';
 
@@ -98,7 +99,7 @@ export default defineConfig({
         //             .use(retextSpell, dictionaryPl)
         //     ]
         // ],
-        rehypePlugins: [rehypeSlug],
+        rehypePlugins: [rehypeSlug, [rehypeShiki, { theme: 'github-light' }]],
         development: isDev
     }
 });

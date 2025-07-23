@@ -90,4 +90,29 @@ article.post {
             padding: .1em .2em;
         }
     }
+
+    details {
+        position: relative;
+        border: 1px solid black;
+        min-height: 1em;
+        margin-bottom: 1em;
+        padding: .3em 1em;
+
+        &[open] {
+            padding: 1em;
+        }
+
+        summary {
+            position: absolute;
+            top: -0.6em;
+            margin: 0 1em;
+            padding: 0 .5em;
+            // display: inline-block;
+            background-color: white;
+        }
+
+        pre {
+            padding: .5em;
+        }
+    }
 }
