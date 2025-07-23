@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/burtek/dtrw-app-home/compare/v1.2.1...v1.2.2) (2025-07-23)
+
+
+### Bug Fixes
+
+* **ui:** nginx routing ([03d33a5](https://github.com/burtek/dtrw-app-home/commit/03d33a5f776d224e6e18d11428849793cd5cf9fc))
+
 ### [1.2.1](https://github.com/burtek/dtrw-app-home/compare/v1.2.0...v1.2.1) (2025-07-23)
 
 
