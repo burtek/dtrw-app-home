@@ -6,6 +6,10 @@ export const metadata: Metadata = {
         template: '%s - Blog - Dtrw.ovh',
         default: 'Blog - Dtrw.ovh'
     },
+    alternates: {
+        canonical: 'https://dtrw.ovh/blog',
+        types: { 'application/rss+xml': [{ url: '/static/rss.xml', title: 'Blog RSS' }] }
+    },
     description: 'Blog posts about various topics related to technology, programming, genealogy, and more.',
     category: 'Blog'
 };

@@ -23,7 +23,10 @@ export const metadata: Metadata = {
     },
     description: 'My personal website',
     generator: 'Next.JS, Velite',
-    alternates: { types: { 'application/rss+xml': [{ url: '/static/rss.xml', title: 'Blog RSS' }] } },
+    alternates: {
+        canonical: 'https://dtrw.ovh',
+        types: { 'application/rss+xml': [{ url: '/static/rss.xml', title: 'Blog RSS' }] }
+    },
     creator: 'Bartosz Dotryw',
     publisher: 'Bartosz Dotryw'
 };

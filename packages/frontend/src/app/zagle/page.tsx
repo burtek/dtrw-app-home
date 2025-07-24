@@ -168,5 +168,11 @@ export default function SubPage() {
 }
 
 export function generateMetadata(): Metadata {
-    return { title: 'Linki żeglarskie' };
+    return {
+        alternates: {
+            canonical: 'https://dtrw.ovh/zagle',
+            types: { 'application/rss+xml': [{ url: '/static/rss.xml', title: 'Blog RSS' }] }
+        },
+        title: 'Linki żeglarskie'
+    };
 }

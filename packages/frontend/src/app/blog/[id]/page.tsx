@@ -40,7 +40,11 @@ export async function generateMetadata(
     return {
         title: post?.title,
         description: post?.excerpt,
-        category: post?.tags[0]
+        category: post?.tags[0],
+        alternates: {
+            canonical: `https://dtrw.ovh/blog/${id}`,
+            types: { 'application/rss+xml': [{ url: '/static/rss.xml', title: 'Blog RSS' }] }
+        }
     };
 }
 

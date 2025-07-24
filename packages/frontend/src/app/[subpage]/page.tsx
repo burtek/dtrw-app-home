@@ -23,7 +23,13 @@ export async function generateMetadata(
     const { subpage } = await params;
     const page = getPageByName(subpage);
 
-    return { title: page.title };
+    return {
+        title: page.title,
+        alternates: {
+            canonical: `https://dtrw.ovh/${subpage}`,
+            types: { 'application/rss+xml': [{ url: '/static/rss.xml', title: 'Blog RSS' }] }
+        }
+    };
 }
 
 export function generateStaticParams() {
