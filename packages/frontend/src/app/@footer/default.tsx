@@ -22,10 +22,10 @@ export default function Footer() {
                 </a>
                 {', hosted on '}
                 <a
-                    rel="noopener noreferrer nofollow"
-                    href="https://vercel.com"
+                    rel="noopener"
+                    href="https://mikr.us/?r=18f87de2"
                 >
-                    Vercel
+                    mikr.us
                 </a>
                 {', source available on '}
                 <a
