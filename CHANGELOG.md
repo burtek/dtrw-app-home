@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/burtek/dtrw-app-home/compare/v1.2.3...v1.3.0) (2025-07-24)
+
+
+### Features
+
+* **ui:** canonical URLs ([4182ad8](https://github.com/burtek/dtrw-app-home/commit/4182ad89975966b945b8c63d741a462dd161ce45))
+* **ui:** update footer ([797c526](https://github.com/burtek/dtrw-app-home/commit/797c526428f5e1a209419b3a3a25fe76fa5d6e2a))
+
 ### [1.2.3](https://github.com/burtek/dtrw-app-home/compare/v1.2.2...v1.2.3) (2025-07-23)
 
 
