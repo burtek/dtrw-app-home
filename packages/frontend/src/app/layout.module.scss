@@ -2,6 +2,11 @@ $maxWidth: 1000px;
 $smallScreenMargin: 3vw;
 $smallScreenBp: calc(calc($maxWidth/2) * 100vw / calc(50vw - $smallScreenMargin));
 
+%appFragment {
+    max-width: $maxWidth;
+    text-wrap: pretty;
+}
+
 .app {
     min-height: 100vh;
     display: grid;
@@ -10,10 +15,6 @@ $smallScreenBp: calc(calc($maxWidth/2) * 100vw / calc(50vw - $smallScreenMargin)
     grid-template-rows: min-content 1fr min-content;
     padding: 40px calc(50vw - $maxWidth/2);
     gap: 40px;
-
-    @media screen and (max-width: $smallScreenBp) {
-        padding: $smallScreenMargin;
-    }
 
     > header {
         @extend %appFragment;
@@ -29,9 +30,12 @@ $smallScreenBp: calc(calc($maxWidth/2) * 100vw / calc(50vw - $smallScreenMargin)
         @extend %appFragment;
         grid-area: footer;
     }
-}
 
-%appFragment {
-    max-width: $maxWidth;
-    text-wrap: pretty;
+    @media screen and (max-width: $smallScreenBp) {
+        padding: $smallScreenMargin;
+
+        > main {
+            max-width: min(calc(100vw - 2 * $smallScreenMargin), $maxWidth);
+        }
+    }
 }
