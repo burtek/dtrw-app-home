@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/burtek/dtrw-app-home/compare/v1.3.0...v1.3.1) (2025-07-26)
+
+
+### Bug Fixes
+
+* **blog/laczenie-drzew:** fix <Figure> rendering ([23fa65b](https://github.com/burtek/dtrw-app-home/commit/23fa65bf9bec45a7719ccdeb589bea9975670715))
+* **blog:** fix max width of image in narrow screens DTRW-61 #done ([5d305a4](https://github.com/burtek/dtrw-app-home/commit/5d305a4340ec8d4256c9a03d52348fd9f03f68af))
+
 ## [1.3.0](https://github.com/burtek/dtrw-app-home/compare/v1.2.3...v1.3.0) (2025-07-24)
 
 
