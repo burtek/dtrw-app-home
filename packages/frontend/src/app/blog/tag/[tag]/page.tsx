@@ -6,11 +6,7 @@ import { getPostsByTag, posts } from '#content';
 import { Blog } from '../../content';
 
 
-interface Props {
-    params: Promise<{ tag: string }>;
-}
-
-export default async function BlogPage({ params }: Props) {
+export default async function BlogPage({ params }: PageProps<'/blog/tag/[tag]'>) {
     const { tag } = await params;
     const filteredPosts = getPostsByTag(decodeURIComponent(tag));
 
@@ -25,7 +21,7 @@ export default async function BlogPage({ params }: Props) {
 }
 
 export async function generateMetadata(
-    { params }: Props,
+    { params }: PageProps<'/blog/tag/[tag]'>,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const { tag } = await params;

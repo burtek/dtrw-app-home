@@ -10,12 +10,8 @@ import { BlogPost } from './content';
 export const revalidate = false;
 export const dynamic = 'error';
 
-interface Props {
-    params: Promise<{ id: string }>;
-    // searchParams: Promise<Record<string, string | string[] | undefined>>;
-}
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogPostPage({ params }: PageProps<'/blog/[id]'>) {
     const { id } = await params;
     const post = getPostById(id);
 
@@ -31,7 +27,7 @@ export default async function BlogPostPage({ params }: Props) {
 }
 
 export async function generateMetadata(
-    { params }: Props
+    { params }: PageProps<'/blog/[id]'>
     // parent: ResolvingMetadata
 ): Promise<Metadata> {
     const { id } = await params;

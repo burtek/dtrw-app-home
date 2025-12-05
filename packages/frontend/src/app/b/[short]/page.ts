@@ -6,7 +6,7 @@ import { getPostByShort, posts } from '#content';
 export const revalidate = false;
 export const dynamic = 'error';
 
-export default async function ShortRedirect({ params }: { params: Promise<{ short: string }> }) {
+export default async function ShortRedirect({ params }: PageProps<'/b/[short]'>) {
     const { short } = await params;
     const post = getPostByShort(short);
 

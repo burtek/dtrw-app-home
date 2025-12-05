@@ -12,7 +12,6 @@ const isBuild = process.argv.includes('build');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    sassOptions: { silenceDeprecations: ['legacy-js-api'] },
     pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
     rewrites() {
         return Promise.resolve([

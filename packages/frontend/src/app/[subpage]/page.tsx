@@ -5,19 +5,14 @@ import { getPageByName, pages } from '#content';
 import SubPageContent from './content';
 
 
-interface Props {
-    params: Promise<{ subpage: string }>;
-    // searchParams: Promise<Record<string, string | string[] | undefined>>;
-}
-
-export default async function SubPage({ params }: Props) {
+export default async function SubPage({ params }: PageProps<'/[subpage]'>) {
     const { subpage } = await params;
 
     return <SubPageContent subpage={subpage} />;
 }
 
 export async function generateMetadata(
-    { params }: Props
+    { params }: PageProps<'/[subpage]'>
     // parent: ResolvingMetadata
 ): Promise<Metadata> {
     const { subpage } = await params;
