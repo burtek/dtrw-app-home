@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/burtek/dtrw-app-home/compare/v1.3.1...v1.4.0) (2025-12-05)
+
+
+### Features
+
+* switch to node-alpine image, bump lerna, next, switch to fastify ([3bdff9d](https://github.com/burtek/dtrw-app-home/commit/3bdff9d3c9a72ab8091cfd2d52d89f1f2f968c95))
+
 ### [1.3.1](https://github.com/burtek/dtrw-app-home/compare/v1.3.0...v1.3.1) (2025-07-26)
 
 
