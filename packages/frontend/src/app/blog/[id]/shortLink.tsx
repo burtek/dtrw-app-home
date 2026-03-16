@@ -5,7 +5,7 @@ import styles from './blogpost.module.scss';
 
 
 export const ShortLink = ({ short }: { short?: string }) => {
-    const link = short ? `${document.location.origin}/b/${short}` : short;
+    const link = short && 'document' in global ? `${document.location.origin}/b/${short}` : short;
 
     const onClick = useCallback(() => {
         if (link) {
