@@ -15,11 +15,40 @@ export default config(
             globals: { JSX: 'readonly' },
             parser: tseslint.parser,
             parserOptions: {
-                projectService: { allowDefaultProject: ['eslint.config.mjs'] },
+                projectService: true,
                 tsconfigRootDir: import.meta.dirname
             }
         },
         settings: { 'import/resolver': { typescript: true } }
+    },
+    {
+        files: ['**/*.{ts,tsx}'],
+        rules: {
+            'import-x/order': [
+                'error',
+                {
+                    groups: [
+                        'builtin',
+                        'external',
+                        'internal',
+                        'parent',
+                        ['index', 'sibling']
+                    ],
+                    pathGroups: [
+                        {
+                            pattern: '\\#*',
+                            group: 'parent',
+                            position: 'before'
+                        }
+                    ],
+                    'newlines-between': 'always',
+                    alphabetize: {
+                        order: 'asc',
+                        orderImportKind: 'asc'
+                    }
+                }
+            ]
+        }
     },
     { ignores: ['.velite', '.next', 'node_modules', 'out'] }
 );
