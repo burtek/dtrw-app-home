@@ -28,5 +28,11 @@ jobs:
       - name: Run tests
         run: yarn test
 
+      - name: Prebuild .velite and .next
+        run: yarn workspace frontend build
+
+      - name: Run lint
+        run: yarn lint
+
       - name: Run build
         run: yarn build

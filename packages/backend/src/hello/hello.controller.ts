@@ -11,7 +11,7 @@ export const helloController: FastifyPluginCallback = (instance, options, done) 
 
     f.get(
         '/',
-        async () => `Hello ${helloService.hello()}`
+        () => `Hello ${helloService.hello()}`
     );
 
     done();

@@ -11,8 +11,7 @@ import { ShortLink } from './shortLink';
 
 
 export function BlogPost({ post }: { post: Post }) {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { Content } = useMDX(post.code);
+    const { content } = useMDX({ code: post.code, components: mdxComponents });
 
     function renderTocEntry(tocItem: Post['toc'][number]) {
         return (
@@ -50,7 +49,7 @@ export function BlogPost({ post }: { post: Post }) {
                 )
                 : null}
             <article className={styles.main}>
-                <Content components={mdxComponents} />
+                {content}
             </article>
         </article>
     );

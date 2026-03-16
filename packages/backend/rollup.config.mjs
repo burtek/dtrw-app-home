@@ -9,9 +9,7 @@ import typescript2 from 'rollup-plugin-typescript2';
 
 
 export default defineConfig({
-    input: {
-        index: 'index.ts'
-    },
+    input: { index: 'index.ts' },
     output: {
         dir: 'dist',
         format: 'cjs',

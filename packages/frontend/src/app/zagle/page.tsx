@@ -1,5 +1,4 @@
-/* eslint-disable react/no-danger */
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable @eslint-react/no-array-index-key, @eslint-react/dom/no-dangerously-set-innerhtml */
 import countryNames from 'i18n-iso-countries';
 import type { Metadata } from 'next';
 import Flag from 'react-world-flags';

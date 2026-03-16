@@ -1,20 +1,16 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 
 import styles from './blogpost.module.scss';
 
 
 export const ShortLink = ({ short }: { short?: string }) => {
-    const [link, setLink] = useState('');
-
-    useEffect(() => {
-        if (short) {
-            setLink(`${document.location.origin}/b/${short}`);
-        }
-    }, [short]);
+    const link = short && 'document' in global ? `${document.location.origin}/b/${short}` : short;
 
     const onClick = useCallback(() => {
-        void navigator.clipboard.writeText(link);
+        if (link) {
+            void navigator.clipboard.writeText(link);
+        }
     }, [link]);
 
     if (!link) {

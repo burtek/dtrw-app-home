@@ -4,13 +4,18 @@ import { prepareConfig, config } from '@dtrw/eslint-config';
 
 export default config(
     ...prepareConfig({
-        jest: true,
+        jest: { mode: 'vitest' },
         node: true,
         json: { additionalFiles: { jsonc: ['tsconfig.*.json'] } }
     }),
     {
         files: ['**/*.{js,jsx,ts,tsx,mts}'],
-        languageOptions: { parserOptions: { projectService: true } },
+        languageOptions: {
+            parserOptions: {
+                projectService: true,
+                tsconfigRootDir: import.meta.dirname
+            }
+        },
         settings: { 'import/resolver': { typescript: true } }
     },
     { rules: { 'new-cap': 'off' } }, // for nestjs decorators
