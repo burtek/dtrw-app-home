@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.3](https://github.com/burtek/dtrw-app-home/compare/v1.4.2...v1.4.3) (2026-03-16)
+
+
+### Bug Fixes
+
+* **cd:** Update deploy workflow to remove NPM reload ([f85faaa](https://github.com/burtek/dtrw-app-home/commit/f85faaa82aa1f96fffc9899bd5e579524d202e48))
+
 ### [1.4.2](https://github.com/burtek/dtrw-app-home/compare/v1.4.1...v1.4.2) (2026-03-16)
 
 ### [1.4.1](https://github.com/burtek/dtrw-app-home/compare/v1.4.0...v1.4.1) (2026-03-16)
