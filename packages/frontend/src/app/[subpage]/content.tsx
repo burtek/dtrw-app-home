@@ -6,12 +6,12 @@ import styles from './subpage.module.scss';
 
 export default function SubPageContent({ subpage }: { subpage: string }) {
     const page = getPageByName(subpage);
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { Content } = useMDX(page.code);
+
+    const { content } = useMDX({ code: page.code });
 
     return (
         <article className={styles.about}>
-            <Content />
+            {content}
         </article>
     );
 }
