@@ -84,7 +84,7 @@ jobs:
           source: "docker,docker-compose.yml"
           target: "/apps/${{ env.APP_NAME }}"
 
-      - name: Restart Docker containers and reload NPM
+      - name: Restart Docker containers
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -95,7 +95,6 @@ jobs:
           script: |
             cd /apps/${{ env.APP_NAME }}
             docker compose up -d --build
-            docker exec nginx-proxy-manager nginx -s reload
 
       - name: Disable maintenance mode in kuma (NOT IMPLEMENTED)
         if: false
