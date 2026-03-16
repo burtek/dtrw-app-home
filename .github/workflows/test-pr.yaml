@@ -28,6 +28,9 @@ jobs:
       - name: Run tests
         run: yarn test
 
+      - name: Prebuild velite content
+        run: yarn workspace frontend velite build
+
       - name: Run lint
         run: yarn lint
 
