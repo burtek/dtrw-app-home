@@ -1,6 +1,5 @@
-
 export class HelloService {
     hello() {
-        return 'World!'
+        return 'World!';
     }
 }

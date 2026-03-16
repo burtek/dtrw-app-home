@@ -1,5 +1,6 @@
 // @ts-check
 import { prepareConfig, config } from '@dtrw/eslint-config';
+import tseslint from 'typescript-eslint';
 
 
 export default config(
@@ -9,13 +10,16 @@ export default config(
         react: { nextjs: true }
     }),
     {
-        files: ['**/*.{js,jsx,ts,tsx,mts}'],
+        files: ['eslint.config.mjs', '**/*.{js,jsx,mjs,ts,tsx,mts}'],
         languageOptions: {
             globals: { JSX: 'readonly' },
-            parserOptions: { projectService: true }
+            parser: tseslint.parser,
+            parserOptions: {
+                projectService: { allowDefaultProject: ['eslint.config.mjs'] },
+                tsconfigRootDir: import.meta.dirname
+            }
         },
         settings: { 'import/resolver': { typescript: true } }
     },
-    { rules: { 'react/display-name': 'off' } },
-    { ignores: ['.velite', 'node_modules'] }
+    { ignores: ['.velite', '.next', 'node_modules', 'out'] }
 );
