@@ -33,7 +33,7 @@ jobs:
       - name: Run tests and build
         run: |
           yarn test
-          yarn workspace frontend velite build
+          yarn workspace frontend build
           yarn lint
           yarn build
 
