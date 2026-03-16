@@ -50,5 +50,5 @@ export default config(
             ]
         }
     },
-    { ignores: ['.velite', '.next', 'node_modules', 'out'] }
+    { ignores: ['.velite', '.next', 'node_modules', 'out', 'next-env.d.ts'] }
 );
