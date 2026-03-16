@@ -1,98 +1,91 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Fastify REST API powering the personal homepage.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## Tech stack
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+| Layer | Technology |
+|-------|-----------|
+| Runtime | Node.js 24 |
+| Framework | Fastify 5 |
+| Language | TypeScript 5.9 |
+| Validation | Zod 4 + fastify-type-provider-zod |
+| Build tool | Rollup 4 (CommonJS output with source maps) |
+| Testing | Vitest 4 |
+| Linting | ESLint 10 + `@dtrw/eslint-config` |
 
-## Project setup
+---
 
-```bash
-$ yarn install
+## Source structure
+
+```
+packages/backend/
+├── index.ts               # Entry point (re-exports server)
+├── src/
+│   ├── app.ts             # Fastify app factory — plugin & route registration
+│   ├── server.ts          # Server startup and graceful shutdown
+│   ├── config.ts          # Environment-based configuration (dotenv)
+│   ├── health/            # GET /health — liveness probe for Docker healthcheck
+│   ├── hello/             # GET /hello — sample greeting endpoint
+│   ├── errors/            # Custom error classes
+│   └── decorators/        # Fastify decorators (auth, error handling)
+├── rollup.config.mjs      # Rollup build config
+├── tsconfig.json          # TypeScript config (extends root)
+├── tsconfig.build.json    # Build-specific TypeScript config
+└── vitest.config.ts       # Vitest config
 ```
 
-## Compile and run the project
+---
+
+## Commands
+
+Run from the **repo root** (Lerna) or from this directory directly.
+
+| Command | Description |
+|---------|-------------|
+| `yarn start:dev` | Watch mode — nodemon restarts the server on file changes |
+| `yarn dev` | Single build + run (useful for one-shot start) |
+| `yarn build` | Compile TypeScript → CommonJS in `dist/` via Rollup |
+| `yarn test` | Run unit tests once (Vitest) |
+| `yarn test:watch` | Run tests in watch mode |
+| `yarn lint` | Run ESLint |
+
+---
+
+## API endpoints
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/health` | Returns `{ status: "ok" }` — used as Docker healthcheck |
+| `GET` | `/hello` | Sample greeting — returns a hello message |
+
+All request/response schemas are defined with Zod and are type-safe end-to-end via `fastify-type-provider-zod`.
+
+---
+
+## Build output
+
+Rollup compiles the source to `dist/` (CommonJS modules with source maps). A copy of `package.json` with `"type": "commonjs"` is written to `dist/` so the bundle can be executed with:
 
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+node --enable-source-maps dist/index.js
 ```
 
-## Run tests
+---
 
-```bash
-# unit tests
-$ yarn run test
+## Environment variables
 
-# e2e tests
-$ yarn run test:e2e
+Runtime configuration is loaded from a `.env` file (or from the environment). In production the file is supplied at `docker/backend/env` and mounted into the container.
 
-# test coverage
-$ yarn run test:cov
-```
+| Variable | Description |
+|----------|-------------|
+| `PORT` | Port the server listens on (default `4000`) |
+| `NODE_ENV` | `development` \| `production` |
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## Production deployment
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+The compiled `dist/` directory is copied to the VPS during the `deploy` GitHub Actions workflow and served by a Node.js 24 Alpine Docker container (see `docker-compose.yml` at the repo root).
