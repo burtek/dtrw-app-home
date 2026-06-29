@@ -1,6 +1,6 @@
 # dtrw-app-home
 
-Personal homepage monorepo — a Next.js static site paired with a Fastify REST API, managed with Lerna and Yarn workspaces.
+Personal homepage monorepo — a Next.js static site paired with a Fastify REST API, managed with concurrently and Yarn workspaces.
 
 Monorepo template: [burtek/dtrw-app-helloworld](https://github.com/burtek/dtrw-app-helloworld)
 
@@ -25,7 +25,6 @@ dtrw-app-home/
 │       └── deploy.yaml   # SCP + Docker Compose deploy on version tags
 ├── .husky/               # Git hooks (commit-msg, pre-commit)
 ├── docker-compose.yml    # Production Docker Compose stack
-├── lerna.json            # Lerna configuration
 ├── vitest.config.ts      # Root Vitest config (runs tests across all packages)
 ├── tsconfig.json         # Root TypeScript config (shared base)
 └── package.json          # Yarn workspaces root
@@ -47,7 +46,7 @@ dtrw-app-home/
 | Tool | Role |
 |------|------|
 | **Yarn workspaces** | Hoisted `node_modules`, single lockfile |
-| **Lerna 9** | Cross-package script orchestration (`lerna run build`, etc.) |
+| **Concurrently 10** | Runnig scripts in parallel |
 | **Vitest 4** | Unit tests — root config runs projects from all packages in parallel |
 | **ESLint 10** + `@dtrw/eslint-config` | Shared lint rules for both packages |
 | **Husky** + **Commitlint** | Conventional-commit enforcement via git hooks |

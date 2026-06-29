@@ -41,7 +41,7 @@ packages/backend/
 
 ## Commands
 
-Run from the **repo root** (Lerna) or from this directory directly.
+Run from the **repo root** (`yarn workspace backend {}`) or from this directory directly.
 
 | Command | Description |
 |---------|-------------|

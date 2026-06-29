@@ -73,7 +73,7 @@ Additional build-time steps:
 
 ## Commands
 
-Run from the **repo root** (Lerna) or from this directory directly.
+Run from the **repo root** (`yarn workspace frontend {}`) or from this directory directly.
 
 | Command | Description |
 |---------|-------------|
