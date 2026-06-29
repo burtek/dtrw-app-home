@@ -1,6 +1,5 @@
 // @ts-check
-import { prepareConfig, config } from '@dtrw/eslint-config';
-import tseslint from 'typescript-eslint';
+import { prepareConfig, config, tseslint } from '@dtrw/eslint-config';
 
 
 export default config(

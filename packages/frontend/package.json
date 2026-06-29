@@ -22,8 +22,8 @@
     "shiki": "^3.6.0"
   },
   "devDependencies": {
-    "@dtrw/eslint-config": "~6.0.6",
-    "@types/node": "^24.1.0",
+    "@dtrw/eslint-config": "catalog:",
+    "@types/node": "catalog:",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@types/react-world-flags": "^1.6.0",
@@ -37,7 +37,7 @@
     "rimraf": "^6.0.1",
     "rss": "^1.2.2",
     "sass": "^1.83.4",
-    "typescript": "^6.0.3",
+    "typescript": "catalog:",
     "unified": "^11.0.5",
     "velite": "^0.4.0"
   }

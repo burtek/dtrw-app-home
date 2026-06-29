@@ -23,12 +23,12 @@
     "zod": "^4.0.15"
   },
   "devDependencies": {
-    "@dtrw/eslint-config": "~6.0.6",
+    "@dtrw/eslint-config": "catalog:",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "@types/node": "^24.1.0",
+    "@types/node": "catalog:",
     "@types/validator": "^13.15.2",
     "eslint": "^10.0.0",
     "nodemon": "^3.1.10",
@@ -36,8 +36,8 @@
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-sourcemaps2": "^0.5.3",
     "rollup-plugin-typescript2": "^0.37.0",
-    "typescript": "^6.0.3",
-    "vitest": "^4.1.0"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "engines": {
     "node": "^24.0.0"
