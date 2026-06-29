@@ -37,7 +37,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "velite.config.ts",
-    "next.config.mjs",
+    "next.config.ts",
     ".next/dev/types/**/*.ts",
     "eslint.config.mjs"
   ],

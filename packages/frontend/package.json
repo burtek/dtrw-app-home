@@ -15,14 +15,14 @@
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
     "i18n-iso-countries": "^7.13.0",
-    "next": "~16.1.5",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "next": "~16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "react-world-flags": "^1.6.0",
     "shiki": "^3.6.0"
   },
   "devDependencies": {
-    "@dtrw/eslint-config": "~6.0.1",
+    "@dtrw/eslint-config": "~6.0.6",
     "@types/node": "^24.1.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
@@ -37,8 +37,9 @@
     "rimraf": "^6.0.1",
     "rss": "^1.2.2",
     "sass": "^1.83.4",
-    "typescript": "~5.9.2",
+    "typescript": "^6.0.3",
     "unified": "^11.0.5",
-    "velite": "^0.2.4"
-  }
+    "velite": "^0.4.0"
+  },
+  "packageManager": "yarn@1.22.22"
 }
