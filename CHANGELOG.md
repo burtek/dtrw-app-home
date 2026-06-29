@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/burtek/dtrw-app-home/compare/v1.4.3...v1.5.0) (2026-06-29)
+
+
+### Features
+
+* **blog/jak-dziala-scam-olx:** new blog post ([840d0bb](https://github.com/burtek/dtrw-app-home/commit/840d0bba605ef1f7580184cc71504c7096f07ef4))
+
+
+### Bug Fixes
+
+* **backend:** build after dependency bumps ([7b60f67](https://github.com/burtek/dtrw-app-home/commit/7b60f67bd003fb614481409d17c82ea2fddb78dd))
+* eslint issues after plugin bump ([c2b44b9](https://github.com/burtek/dtrw-app-home/commit/c2b44b94763878f7176fbf13fa25a5d28f7cd7c5))
+
 ### [1.4.3](https://github.com/burtek/dtrw-app-home/compare/v1.4.2...v1.4.3) (2026-03-16)
 
 
