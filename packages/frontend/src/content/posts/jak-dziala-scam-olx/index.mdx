@@ -73,8 +73,45 @@ W innym przypadku oszust napisał bezpośrednio na WhatsApp na numer podany w og
 <PreviewPic src="alt_whatsapp_a1.jpeg" title="Załącznik z wiadomości na WhatsApp" previewSize="100" />
 </PreviewPicGallery>
 
+### Aktualizacja:
+
+<PreviewPicGallery>
+<PreviewPic src="alt_mail.png" title="Wiadomość e-mail od oszusta" previewSize="100" />
+<PreviewPic src="alt_mail_sender.jpeg" title="Adres e-mail nadawcy" previewSize="100" />
+</PreviewPicGallery>
+
+Co ciekawe w tym przypadku link z maila... nie działał :D Po zgłoszeniu problemu do "kupującego" otrzymałem od razu nowy e-mail od "InPost". Czyżby "kupujący" "pracował" w "InPost"? :D
+
+<PreviewPicGallery>
+<PreviewPic src="alt_404.png" title="Strona wyświetla 404 Not Found" previewSize="100" />
+<PreviewPic src="alt_whatsapp2.png" title="Kontynuacja rozmowy na WhatsApp" previewSize="100" />
+<PreviewPic src="alt_mail_sender2.png" title="Adres e-mail nadawcy" previewSize="100" />
+<PreviewPic src="alt_fake_inpost.png" title="Adres e-mail nadawcy" previewSize="100" />
+</PreviewPicGallery>
+
+Swoją drogą ten fałszywy InPost wygląda bardzo podobnie do fałszywej Poczty Polskiej, którą opisałem wcześniej. Warto zwrócić uwagę na adres strony - `inpolst.ari2zdi2.sbs` to zdecydowanie nie adres InPost.
+
 ## Wnioski
 
 1. Kontakt poza platformą sprzedaży prawie na pewno jest próbą oszustwa lub wyłudzenia danych.
 2. Zawsze należy sprawdzać adres strony, na której się logujemy lub podajemy wrażliwe dane.
 3. Nigdy nie ufajmy linkom ani zrzutom ekranu załączanym przez "kupującego"
+
+## IoC
+
+- Adres e-mail nadawcy z domen: `@88-ayx.com`, `@article-10.com`
+- Domeny fałszywych stron: `inpolst.ari2zdi2.sbs`, `poczta-pl.auybet.icu`, `adriancooks.com`.
+
+### Sprawdzenie informacji o domenach:
+
+Wszystkie linki z maili prowadzą do jednej domeny `adriancooks.com`, która przekierowuje do innych domen. Wszystkie domeny są obsługiwane przez CloudFlare.
+
+Domena | Data rejestracji | Rejestrator
+--- | --- | ---
+adriancooks.com | 2025-07-14 | Gname.com Pte. Ltd.
+inpolst.ari2zdi2.sbs | 2026-06-26 | Global Domain Group LLC
+poczta-pl.auybet.icu | 2026-06-26 | PDR Ltd. d/b/a PublicDomainRegistry.com
+88-ayx.com | 2025-07-07 | Name SRS AB
+article-10.com | 2026-01-24 | Metaregistrar BV
+
+Wszystkie otrzymane wiadomości e-mail (w formacie eml) zostały przekazane do analizy CERT Polska. Warto pamiętać, że w przypadku otrzymania podejrzanej wiadomości e-mail, można ją przesłać do cert pod adresem [https://incydent.cert.pl](https://incydent.cert.pl), a SMSy z linkami przekierować na numer 8080.
