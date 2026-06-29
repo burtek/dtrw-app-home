@@ -51,7 +51,7 @@ export const PreviewPic: PreviewPicType = ({ src, title, previewSize = 300 }) =>
                     id={`preview-pic-dialog-${src}`}
                     className={styles.previewPicDialog}
                     ref={dialogRef}
-                    // eslint-disable-next-line @eslint-react/dom/no-unknown-property
+                    // eslint-disable-next-line @eslint-react/dom-no-unknown-property
                     closedby="closerequest"
                     onClose={onDialogClosed}
                     onClick={onDialogClick}
