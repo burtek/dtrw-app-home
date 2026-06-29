@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/burtek/dtrw-app-home/compare/v1.5.2...v1.6.0) (2026-06-29)
+
+
+### Features
+
+* **blog/jak-dziala-scam-olx:** update ([e6460c9](https://github.com/burtek/dtrw-app-home/commit/e6460c9e8b02566663b466f1d61227658ab3d032))
+
+
+### Bug Fixes
+
+* **blog/jak-dziala-scam-olx:** image file name ([558cf30](https://github.com/burtek/dtrw-app-home/commit/558cf3002218a0b83275f87e9f823e6bc4329bb8))
+
 ### [1.5.2](https://github.com/burtek/dtrw-app-home/compare/v1.5.1...v1.5.2) (2026-06-29)
 
 
