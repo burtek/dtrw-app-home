@@ -9,7 +9,8 @@ import * as jsxRuntime from 'react/jsx-runtime';
 const sharedComponents: Record<string, React.ComponentType> = {};
 
 /* eslint-disable @typescript-eslint/naming-convention */
-export const useMDX = ({ code, components }: { code: string | undefined; components?: Record<string, React.ComponentType> }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useMDX = ({ code, components }: { code: string | undefined; components?: Record<string, React.ComponentType<any>> }) => {
     type Comp = FC<{ components?: Record<string, React.ComponentType> }>;
     const RawComponent = useMemo<Comp>(() => {
         if (!code) {

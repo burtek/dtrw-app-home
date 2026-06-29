@@ -121,3 +121,56 @@ article.post {
         }
     }
 }
+
+%figure {
+    text-align: center;
+}
+
+.previewPicGallery {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+
+    .previewPic {
+        border: 1px solid var(--image-border);
+        padding: 2px;
+
+        figure {
+            @extend %figure;
+
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+}
+dialog.previewPicDialog {
+    &::backdrop {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        figure {
+            @extend %figure;
+
+            img {
+                max-height: 80vh;
+                max-width: 80vw;
+            }
+        }
+    }
+}

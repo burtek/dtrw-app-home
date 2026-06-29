@@ -1,0 +1,80 @@
+---
+title: Jak działa scam na OLX?
+short: scam-olx
+tags: [bezpieczeństwo, IT]
+ownExcerpt: Zostałem poproszony o listę podstawowych zasad bezpieczeństwa. Oto kilka prostych zasad i przykładów które mogą pomóc w uniknięciu problemów z bezpieczeństwem w sieci.
+---
+
+Wiele się mówi w internecie jakimi metodami oszuści próbują wyłudzić pieniądze od użytkowników. Ostatnio wystawiłem na OLX kilka przedmiotów i oczywiście trafiłem na próbę oszustwa. Poniżej opiszę jak wyglądał ten scam i jakie wnioski można z niego wyciągnąć.
+
+## Na początek
+
+Oczywiście osobom niedoświadczonym nie radzę wchodzić w żadną interakcję z osobami które wydają się podejrzane. Warto też pamiętać, że w internecie nie ma nic za darmo i jeśli coś wydaje się zbyt piękne aby było prawdziwe, to najprawdopodobniej tak jest. Więcej o tym można przeczytać w moim starym poście <InternalLink short="itsec" />.
+
+Jeśli już jednak zdecydujemy się na interakcję z osobą, która wydaje się podejrzana, warto pamiętać o kilku podstawowych zasadach bezpieczeństwa. Przede wszystkim, nie używajmy do kontaktu faktycznych prawdziwych danych. W moim przypadku podałem prawdziwe imię i nazwisko oraz numer telefonu (i tak widoczny na OLX i dający się łatwo ze mną powiązać), ale w większości przypadków, zarówno do researchu takiego jak mój, jak i sprzedaży online, lepiej jest używać samego imienia i innego numeru telefonu (np pre-paid za 5 zł).
+
+## Jak wyglądał scam?
+
+Wystawiłem na OLX używane reflektorki z Leroy Merlin. Cena była atrakcyjna, a zdjęcia i opis były prawdziwe. W ciągu kilku godzin dostałem wiadomość od osoby zainteresowanej kupnem o treści (pisowna w oryginale):
+
+> _Dzień dobry, piszę z konta męża, bo nie mogę wejść na swoje. Podoba mi się twoje ogłoszenie. Jeśli to możliwe, proszę, skontaktuj się ze mną na WhatsAppie – omówimy parę szczegółów i dogadamy się co do zakupu. Nie będę mogła tu pisać, bo mąż wyjeżdża do pracy. Dziękuję za zrozumienie. (7_9_4) num (3_4_3) Moj (8_2_3)_
+
+<PreviewPicGallery>
+<PreviewPic src="1-olx.png" title="Wiadomość otrzymana na OLX" previewSize="100" />
+</PreviewPicGallery>
+
+<Idea>
+Każdorazowo gdy w temacie zakupu na OLX kupujący kontaktuje się poza OLX (inicjując rozmowę lub prosząc o kontakt jak w przypadku powyżej) należy zachować szczególną ostrożność. Praktycznie w każdym przypadku będzie to próba wyłudzenia pieniędzy lub danych. To typowa metoda oszustów, którzy chcą uniknąć monitorowania przez OLX i innych użytkowników. Sam sposób podania numeru telefonu (z przerwami i w nawiasach) jest również typowy dla oszustów, którzy chcą uniknąć automatycznego wykrywania przez systemy antyspamowe.
+</Idea>
+
+W tej sytuacji oszustwa spodziewałem się z góry, jednak w celach badawczych postanowiłem kontynuować rozmowę. Skontaktowałem się z podanym numerem przez WhatsApp i po ustaleniu szczegółów "zakupu" zostałem poproszony o moje dane. Kupujący miał je wpisać na stronie przewoźnika (w tym przypadku Poczty Polskiej, równie popularny jest też InPost), zapłacić za towar za pośrednictwem przewoźnika i opłacić wszystko z góry. Moim zadaniem byłoby tylko odebranie opłaty i przekazanie towaru. Podałem prawdziwe imię i nazwisko oraz numer telefonu, a także stworzony na potrzeby tej konkretnej rozmowy adres e-mail.
+
+<PreviewPicGallery>
+<PreviewPic src="2-whatsapp.png" title="Wiadomość otrzymana na WhatsApp" previewSize="100" />
+<PreviewPic src="2-whatsapp_a1.jpg" title="Załącznik z wiadomości na WhatsApp" previewSize="100" />
+<PreviewPic src="2-whatsapp_a2.jpg" title="Załącznik z wiadomości na WhatsApp" previewSize="100" />
+</PreviewPicGallery>
+
+## Płatność
+
+Na podany przeze mnie adres e-mail otrzymałem wiadomość od "przewoźnika" z prośbą o weryfikację danych. Dostałem link, który miał również służyć do odebrania płatności za towar. W rzeczywistości mail ten nie został jednak wysłany przez Pocztę Polską, a przez oszusta z adresu `@88-ayx.com`, który oczywiście z Pocztą Polską nie ma nic wspólnego.
+
+<PreviewPicGallery>
+<PreviewPic src="email.png" title="Wiadomość e-mail od oszusta" previewSize="100" />
+<PreviewPic src="email_sender.png" title="Adres e-mail nadawcy" previewSize="100" />
+</PreviewPicGallery>
+
+Po kliknięciu w link zostałem przekierowany na stronę, która podawałą się za stronę Poczty Polskiej, z formularzem (imię i nazwisko, nr telefonu) do wypełnienia. Formularz zawierał już wypełnione dane "odbiorcy".
+
+Warto zwrócić tu uwagę na "dziwne" zachowanie tej strony - możliwość wnioskowania o fakturę czy użycia kodu rabatowego to nie są opcje, jakich można się spodziewać jedynie nadając paczkę i nic nie płacąc. Zwróćmy także uwagę na sam adres strony - `poczta-pl.auybet.icu` to zdecydowanie nie adres Poczty Polskiej.
+
+<PreviewPicGallery>
+<PreviewPic src="3-fake_poczta-polska.png" title="Fałszywa strona Poczty Polskiej" previewSize="100" />
+</PreviewPicGallery>
+
+Po zatwierdzeniu formularza pojawia się strona tym razem podająca się za pośrednika płatności P24NOW. Po wybraniu banku pojawia się okno logowania do wybranego banku. W obu przypadkach są to fałszywe strony - wszystkie znajdujące się pod tym samym adresem `poczta-pl.auybet.icu`, a więc nienależące do P24NOW ani do wybranego banku. ZAWSZE należy sprawdzać adres strony, na której się logujemy lub podajemy wrażliwe dane.
+
+
+<PreviewPicGallery>
+<PreviewPic src="4-fake_payment.png" title="Fałszywa strona pośrednika płatności" previewSize="100" />
+<PreviewPic src="5-fake_mbank.png" title="Fałszywa strona logowania do banku" previewSize="100" />
+</PreviewPicGallery>
+
+## O co w tym wszystkim chodzi?
+
+Oczywiście celem całego oszustwa jest zdobycie danych logowania do banku, a następnie wyczyszczenie konta ofiary. Zalogowanie się na podstawionej stronie przekazałoby login i hasło do oszusta, który następnie mógłby wyczyścić konto. Potwierdzanie działań za pomocą SMS lub aplikacji mobilnej dużo nie zmieni, gdyż samo logowanie ofiara potwierdzi bez problemu (w końcu sama się właśnie loguje) a następnym krokiem jest zwykle dodanie zaufanego odbiorcy przelewu (co fałszywa strona tłumaczy jako konieczne do odbioru płatności). W tym momencie oszust ma już pełny dostęp do konta ofiary i może wykonać przelew na swoje konto.
+
+## Inny przykład
+
+W innym przypadku oszust napisał bezpośrednio na WhatsApp na numer podany w ogłoszeniu. Załączył fałśzywą grafikę z InPost i poprosił o adres e-mail. Tu konktakt jednak się urwał.
+
+<PreviewPicGallery>
+<PreviewPic src="alt_whatsapp.png" title="Wiadomość otrzymana na WhatsApp" previewSize="100" />
+<PreviewPic src="alt_whatsapp_a1.jpeg" title="Załącznik z wiadomości na WhatsApp" previewSize="100" />
+</PreviewPicGallery>
+
+## Wnioski
+
+1. Kontakt poza platformą sprzedaży prawie na pewno jest próbą oszustwa lub wyłudzenia danych.
+2. Zawsze należy sprawdzać adres strony, na której się logujemy lub podajemy wrażliwe dane.
+3. Nigdy nie ufajmy linkom ani zrzutom ekranu załączanym przez "kupującego"

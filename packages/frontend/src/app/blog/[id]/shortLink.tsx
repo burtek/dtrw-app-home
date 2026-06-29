@@ -1,11 +1,14 @@
 'use client';
 import { useCallback } from 'react';
 
+import { useIsClient } from '../../../isClient';
+
 import styles from './blogpost.module.scss';
 
 
 export const ShortLink = ({ short }: { short?: string }) => {
     const link = short && 'document' in global ? `${document.location.origin}/b/${short}` : short;
+    const isClient = useIsClient();
 
     const onClick = useCallback(() => {
         if (link) {
@@ -13,7 +16,7 @@ export const ShortLink = ({ short }: { short?: string }) => {
         }
     }, [link]);
 
-    if (!link) {
+    if (!link || !isClient) {
         return null;
     }
 
