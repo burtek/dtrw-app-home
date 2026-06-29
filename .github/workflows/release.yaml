@@ -16,32 +16,42 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
           fetch-depth: 0  # Needed for standard-version to access tags
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6.0.9
         with:
-          node-version: '24'
-          cache: 'yarn'
+          version: 11
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.15'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
-      - name: Run tests and build
-        run: |
-          yarn test
-          yarn workspace frontend build
-          yarn lint
-          yarn build
+      - name: Run tests
+        run: pnpm test
+
+      - name: Prebuild .velite and .next # require for lint to work properly
+        run: pnpm --filter=frontend build
+
+      - name: Run lint
+        run: pnpm lint
+
+      - name: Run build
+        run: pnpm build
 
       - name: Bump version and generate changelog
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          yarn release
+          pnpm release
 
       - name: Push release commit and tags
         uses: ad-m/github-push-action@master

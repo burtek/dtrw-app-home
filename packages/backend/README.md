@@ -41,16 +41,16 @@ packages/backend/
 
 ## Commands
 
-Run from the **repo root** (`yarn workspace backend {}`) or from this directory directly.
+Run from the **repo root** (`pnpm --filter=backend {}`) or from this directory directly.
 
 | Command | Description |
 |---------|-------------|
-| `yarn start:dev` | Watch mode — nodemon restarts the server on file changes |
-| `yarn dev` | Single build + run (useful for one-shot start) |
-| `yarn build` | Compile TypeScript → CommonJS in `dist/` via Rollup |
-| `yarn test` | Run unit tests once (Vitest) |
-| `yarn test:watch` | Run tests in watch mode |
-| `yarn lint` | Run ESLint |
+| `pnpm start:dev` | Watch mode — nodemon restarts the server on file changes |
+| `pnpm dev` | Single build + run (useful for one-shot start) |
+| `pnpm build` | Compile TypeScript → CommonJS in `dist/` via Rollup |
+| `pnpm test` | Run unit tests once (Vitest) |
+| `pnpm test:watch` | Run tests in watch mode |
+| `pnpm lint` | Run ESLint |
 
 ---
 

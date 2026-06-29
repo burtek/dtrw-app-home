@@ -1,6 +1,6 @@
 # dtrw-app-home
 
-Personal homepage monorepo — a Next.js static site paired with a Fastify REST API, managed with concurrently and Yarn workspaces.
+Personal homepage monorepo — a Next.js static site paired with a Fastify REST API, managed with concurrently and pnpm workspaces.
 
 Monorepo template: [burtek/dtrw-app-helloworld](https://github.com/burtek/dtrw-app-helloworld)
 
@@ -27,7 +27,7 @@ dtrw-app-home/
 ├── docker-compose.yml    # Production Docker Compose stack
 ├── vitest.config.ts      # Root Vitest config (runs tests across all packages)
 ├── tsconfig.json         # Root TypeScript config (shared base)
-└── package.json          # Yarn workspaces root
+└── package.json          # pnpm workspaces root
 ```
 
 ---
@@ -45,7 +45,7 @@ dtrw-app-home/
 
 | Tool | Role |
 |------|------|
-| **Yarn workspaces** | Hoisted `node_modules`, single lockfile |
+| **pnpm workspaces** | single lockfile |
 | **Concurrently 10** | Runnig scripts in parallel |
 | **Vitest 4** | Unit tests — root config runs projects from all packages in parallel |
 | **ESLint 10** + `@dtrw/eslint-config` | Shared lint rules for both packages |
@@ -56,17 +56,17 @@ dtrw-app-home/
 
 ## Getting started
 
-**Prerequisites:** Node.js 24, Yarn 1.x
+**Prerequisites:** Node.js 24, pnpm 11.x
 
 ```bash
 # Install all dependencies (hoisted to root node_modules)
-yarn install
+pnpm install
 
 # Start both packages in watch/dev mode
-yarn dev
+pnpm dev
 
 # Frontend only (Next.js dev server on http://localhost:3000)
-yarn dev:frontend
+pnpm dev:ui
 ```
 
 The frontend proxies `/api/*` to `http://localhost:4000` in development, so the backend must be running for API-dependent features.
@@ -77,12 +77,12 @@ The frontend proxies `/api/*` to `http://localhost:4000` in development, so the 
 
 | Command | Description |
 |---------|-------------|
-| `yarn dev` | Start backend (nodemon) + frontend (Next.js) in dev mode |
-| `yarn dev:frontend` | Start frontend dev server only |
-| `yarn build` | Build all packages (Rollup for backend, Next.js static export for frontend) |
-| `yarn lint` | ESLint all packages |
-| `yarn test` | Run Vitest across all packages |
-| `yarn release` | Bump versions, update CHANGELOG, create git tag |
+| `pnpm dev` | Start backend (nodemon) + frontend (Next.js) in dev mode |
+| `pnpm dev:ui` | Start frontend dev server only |
+| `pnpm build` | Build all packages (Rollup for backend, Next.js static export for frontend) |
+| `pnpm lint` | ESLint all packages |
+| `pnpm test` | Run Vitest across all packages |
+| `pnpm release` | Bump versions, update CHANGELOG, create git tag |
 
 ---
 
@@ -90,13 +90,13 @@ The frontend proxies `/api/*` to `http://localhost:4000` in development, so the 
 
 ```
 PR opened
-  └─► test-pr.yaml  ── yarn test + yarn lint + yarn build
+  └─► test-pr.yaml  ── pnpm test + pnpm lint + pnpm build
 
 PR merged to master
   └─► release.yaml  ── tests + build → standard-version → push tag vX.Y.Z
 
 Tag vX.Y.Z pushed
-  └─► deploy.yaml   ── yarn build (with COMMIT_SHA) → SCP to VPS → docker compose up
+  └─► deploy.yaml   ── pnpm build (with COMMIT_SHA) → SCP to VPS → docker compose up
 ```
 
 ### Deployment infrastructure

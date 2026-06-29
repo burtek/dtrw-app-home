@@ -9,8 +9,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
-    "dev": "yarn build && NODE_ENV=development node ./dist/index.js",
-    "start:dev": "nodemon --watch src --delay 200ms --ext ts --exec \"yarn dev\"",
+    "dev": "pnpm run build && NODE_ENV=development node ./dist/index.js",
+    "start:dev": "nodemon --watch src --delay 200ms --ext ts --exec \"pnpm run dev\"",
     "lint": "eslint .",
     "test": "NODE_ENV=test vitest run",
     "test:watch": "NODE_ENV=test vitest watch"

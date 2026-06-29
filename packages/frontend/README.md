@@ -73,15 +73,15 @@ Additional build-time steps:
 
 ## Commands
 
-Run from the **repo root** (`yarn workspace frontend {}`) or from this directory directly.
+Run from the **repo root** (`pnpm --filter=frontend {}`) or from this directory directly.
 
 | Command | Description |
 |---------|-------------|
-| `yarn start:dev` | Start Next.js dev server at `http://localhost:3000` |
-| `yarn build` | Run Velite + Next.js static export → `out/` + generate RSS feed |
-| `yarn start` | Start the Next.js production server (requires a prior build) |
-| `yarn lint` | Run ESLint |
-| `yarn clean` | Delete `.next/` and `.velite/` cache directories |
+| `pnpm start:dev` | Start Next.js dev server at `http://localhost:3000` |
+| `pnpm build` | Run Velite + Next.js static export → `out/` + generate RSS feed |
+| `pnpm start` | Start the Next.js production server (requires a prior build) |
+| `pnpm lint` | Run ESLint |
+| `pnpm clean` | Delete `.next/` and `.velite/` cache directories |
 
 ---
 
@@ -114,7 +114,7 @@ In development the Next.js dev server proxies `/api/*` requests to `http://local
 
 ## Build output
 
-`yarn build` produces a fully static site in `out/`. The Nginx config at `docker/frontend/nginx.conf` serves this directory and handles client-side navigation with `try_files $uri $uri.html /index.html`.
+`pnpm build` produces a fully static site in `out/`. The Nginx config at `docker/frontend/nginx.conf` serves this directory and handles client-side navigation with `try_files $uri $uri.html /index.html`.
 
 ---
 
