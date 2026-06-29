@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "ES2023",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "lib": ["ESNext"],
-    "baseUrl": ".",
+    "rootDir": ".",
 
     "types": ["vitest/globals"],
 
